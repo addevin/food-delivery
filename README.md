@@ -1,27 +1,55 @@
-# App
+# Food Delivery Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
+This repository contains an Angular application named "Food Delivery" that allows users to order food from various restaurants. The app utilizes JWT (JSON Web Token) refresh and access tokens for user authentication. It consists of four major pages: Home, Account, Login, and Signup.
 
-## Development server
+The API of this project is developed on Nodejs which is hosted on aws server for live running and also available the code in git repositery ([github repo](https://github.com/addevin/food-delivery-nodejs))
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **Home**: This page displays a variety of food options and menus available for ordering.
+- **Account**: Users can access this page to change their user data and upload an avatar.
+- **Login**: The login page enables users to authenticate themselves and gain access to the app's features.
+- **Signup**: Users can register for a new account using this page.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used
 
-## Build
+The Food Delivery Angular app incorporates the following technologies:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular: A popular web application framework for building efficient and scalable applications.
+- JWT (JSON Web Token): A secure method for transmitting user authentication information between parties.
+- Tailwind: A CSS framework that provides responsive design.
+- RESTful APIs: The app interacts with server-side APIs to fetch food data, handle user authentication, and manage user data.
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To run the Food Delivery Angular app locally, follow these steps:
 
-## Running end-to-end tests
+1. Ensure you have [Node.js](https://nodejs.org) installed on your machine.
+2. Clone this repository to your local machine using the following command:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+git clone https://github.com/your-username/food-delivery.git
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Navigate to the project's root directory:
+```
+cd food-delivery    
+```
+
+4. Install the required dependencies using npm:
+
+```
+npm install
+```
+
+5. Once the installation is complete, start the development server:
+```
+ng serve
+```
+
+
+6. Open your web browser and visit `http://localhost:4200` to access the Food Delivery app. or live preview on [food-delivery.addev.club](https://food-delivery.addev.club)
+
+
+
