@@ -1,0 +1,60 @@
+<div class="border">
+    <div class="container mx-auto md:w-10/12 flex items-center justify-between">
+        <div class="w-4/12 flex justify-between">
+            <div class=" py-3" routerLink="/" role="button">
+                <h3 class="text-black-900 logo-font  font-bold text-xl/5">
+                    Food
+                </h3>
+                <h3 class="text-indigo-500 font-bold text-xl/5">
+                    Delivery
+                </h3>
+            </div>
+            <div class="my-3 bg-gray-100 text-indigo-600 rounded-md flex justify-center items-center p-1 hidden md:flex focus-within:bg-gray-200">
+                <input type="search" class="bg-transparent p-1 outline-none" placeholder="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-gray-500">
+                    <g id="Interface / Search_Magnifying_Glass">
+                    <path id="Vector" d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    </svg>
+            </div>
+        </div>
+        <div class="w-6/12 flex items-center justify-end ">
+            <div class="fixed md:static bg-white left-full top-0 bottom-0 width-screen" [ngClass]="{'left-0 flex-col flex sm:w-6/12 w-full text-center justify-center shadow-xl border':menuToggle,'left-full':!menuToggle}" style="z-index: 9;">
+                <div class="my-3 mx-1 bg-gray-100 focus-within:bg-gray-200 text-indigo-600 rounded-md flex justify-center items-center p-1 flex md:hidden" *ngIf="menuToggle">
+                    <input type="search" class="bg-transparent p-1 outline-none flex-1" placeholder="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-gray-500">
+                        <g id="Interface / Search_Magnifying_Glass">
+                        <path id="Vector" d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        </svg>
+                </div>
+                <a role="button" routerLink="/" class="mr-2 font-medium hover:text-indigo-600" [ngClass]="{'text-xl':menuToggle}">Restaurant </a>
+                <a role="button" routerLink="/" class="mr-2 border-r border-r-gray-500 pr-2 font-medium  hover:text-indigo-600" [ngClass]="{'text-xl':menuToggle}">Deals</a>
+                <a role="button" routerLink="/" class="mr-2 font-medium hover:text-indigo-600" [ngClass]="{'text-xl':menuToggle}">My orders</a>
+                <button class="p-2 bg-indigo-100 rounded-2xl text-indigo-600 ml-2 absolute md:hidden top-10 right-10" style="z-index: 99;" (click)="menuToggle=!menuToggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none">
+                        <g id="Menu / Close_MD">
+                            <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <a role="button" class="p-2 bg-indigo-100 rounded-xl text-indigo-600 ml-2 relative">
+                <div class="t-0 absolute " style="right: -8px; top: -8px;">
+                    <p class="flex h-2 w-2 items-center justify-center rounded-md bg-indigo-500 p-2 text-xs text-white">3</p>
+                  </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 11C15 12.6569 13.6569 14 12 14C10.3431 14 9 12.6569 9 11M4 7H20M4 7V13C4 19.3668 5.12797 20.5 12 20.5C18.872 20.5 20 19.3668 20 13V7M4 7L5.44721 4.10557C5.786 3.428 6.47852 3 7.23607 3H16.7639C17.5215 3 18.214 3.428 18.5528 4.10557L20 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+            </a>
+            <a class=" bg-indigo-100 rounded-xl text-indigo-600 ml-3" style="padding: 2px;" [routerLink]="isUserLoggedIn?'/settings/account':'/auth/login'" routerLinkActive="bg-indigo-300">
+                <img [src]="userData?.avatar?apiBaseUrl+'/images/avatar/'+userData.avatar:'/assets/users/user4.png'" class="object-cover rounded-lg bg-indigo-100" alt="user profile" style=" border-radius: 10px; width: 45px; height: 45px; border: 3px solid white;">
+            </a>
+            <button class="p-3 bg-indigo-100 rounded-xl text-indigo-600 ml-2 block md:hidden" (click)="menuToggle=!menuToggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 20 20" fill="none">
+                    <path fill="currentColor" fill-rule="evenodd" d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"/>
+                  </svg>
+            </button>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,186 @@
+
+<div class="flex flex-col" style="position: fixed; top:10px; right:10px; z-index: 99;">
+    <div class="max-w-xs bg-green-500 text-sm text-white rounded-md shadow-lg  mb-3 ml-3" role="alert" style="min-width: 100px;" *ngIf="successMessage">
+        <div class="flex p-4">
+          <p class="mr-2">{{successMessage}}</p>
+    
+          <div class="ml-auto">
+            <button type="button" (click)="successMessage=null" class="inline-flex flex-shrink-0 justify-center items-center h-4 w-4 rounded-md text-white/[.5] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-800 focus:ring-red-500 transition-all text-sm dark:focus:ring-offset-red-500 dark:focus:ring-red-700">
+              <span class="sr-only">Close</span>
+              <svg class="w-3.5 h-3.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.92524 0.687069C1.126 0.486219 1.39823 0.373377 1.68209 0.373377C1.96597 0.373377 2.2382 0.486219 2.43894 0.687069L8.10514 6.35813L13.7714 0.687069C13.8701 0.584748 13.9882 0.503105 14.1188 0.446962C14.2494 0.39082 14.3899 0.361248 14.5321 0.360026C14.6742 0.358783 14.8151 0.38589 14.9468 0.439762C15.0782 0.493633 15.1977 0.573197 15.2983 0.673783C15.3987 0.774389 15.4784 0.894026 15.5321 1.02568C15.5859 1.15736 15.6131 1.29845 15.6118 1.44071C15.6105 1.58297 15.5809 1.72357 15.5248 1.85428C15.4688 1.98499 15.3872 2.10324 15.2851 2.20206L9.61883 7.87312L15.2851 13.5441C15.4801 13.7462 15.588 14.0168 15.5854 14.2977C15.5831 14.5787 15.4705 14.8474 15.272 15.046C15.0735 15.2449 14.805 15.3574 14.5244 15.3599C14.2437 15.3623 13.9733 15.2543 13.7714 15.0591L8.10514 9.38812L2.43894 15.0591C2.23704 15.2543 1.96663 15.3623 1.68594 15.3599C1.40526 15.3574 1.13677 15.2449 0.938279 15.046C0.739807 14.8474 0.627232 14.5787 0.624791 14.2977C0.62235 14.0168 0.730236 13.7462 0.92524 13.5441L6.59144 7.87312L0.92524 2.20206C0.724562 2.00115 0.611816 1.72867 0.611816 1.44457C0.611816 1.16047 0.724562 0.887983 0.92524 0.687069Z" fill="currentColor"/>
+              </svg>
+              
+            </button>
+          </div>
+        </div>
+      </div>
+    <div class="max-w-xs bg-red-500 text-sm text-white rounded-md shadow-lg  mb-3 ml-3" role="alert" style="min-width: 100px;" *ngFor="let er of errors">
+      <div class="flex p-4">
+        <p class="mr-2">{{er.message}}</p>
+  
+        <div class="ml-auto">
+          <button type="button" (click)="closeErr(er.id)" class="inline-flex flex-shrink-0 justify-center items-center h-4 w-4 rounded-md text-white/[.5] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-800 focus:ring-red-500 transition-all text-sm dark:focus:ring-offset-red-500 dark:focus:ring-red-700">
+            <span class="sr-only">Close</span>
+            <svg class="w-3.5 h-3.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.92524 0.687069C1.126 0.486219 1.39823 0.373377 1.68209 0.373377C1.96597 0.373377 2.2382 0.486219 2.43894 0.687069L8.10514 6.35813L13.7714 0.687069C13.8701 0.584748 13.9882 0.503105 14.1188 0.446962C14.2494 0.39082 14.3899 0.361248 14.5321 0.360026C14.6742 0.358783 14.8151 0.38589 14.9468 0.439762C15.0782 0.493633 15.1977 0.573197 15.2983 0.673783C15.3987 0.774389 15.4784 0.894026 15.5321 1.02568C15.5859 1.15736 15.6131 1.29845 15.6118 1.44071C15.6105 1.58297 15.5809 1.72357 15.5248 1.85428C15.4688 1.98499 15.3872 2.10324 15.2851 2.20206L9.61883 7.87312L15.2851 13.5441C15.4801 13.7462 15.588 14.0168 15.5854 14.2977C15.5831 14.5787 15.4705 14.8474 15.272 15.046C15.0735 15.2449 14.805 15.3574 14.5244 15.3599C14.2437 15.3623 13.9733 15.2543 13.7714 15.0591L8.10514 9.38812L2.43894 15.0591C2.23704 15.2543 1.96663 15.3623 1.68594 15.3599C1.40526 15.3574 1.13677 15.2449 0.938279 15.046C0.739807 14.8474 0.627232 14.5787 0.624791 14.2977C0.62235 14.0168 0.730236 13.7462 0.92524 13.5441L6.59144 7.87312L0.92524 2.20206C0.724562 2.00115 0.611816 1.72867 0.611816 1.44457C0.611816 1.16047 0.724562 0.887983 0.92524 0.687069Z" fill="currentColor"/>
+            </svg>
+            
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<app-header></app-header>
+
+<div class="container mx-auto md:w-10/12 flex flex-col md:flex-row">
+    <div class="w-11/12 mx-auto md:w-1/3 mt-5 ">
+        <h1 class="text-xl">Settings</h1>
+        <div class="flex flex-col pt-2 pr-2">
+            <div class="w-full bg-indigo-50 border-2 p-3 border-indigo-600 flex rounded-2xl items-center mb-1">
+                <div class="bg-indigo-600 p-3 rounded-2xl flex justify-center items-center text-white ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><g id="Complete"><g id="user"><g>
+                        <path d="M20,21V19a4,4,0,0,0-4-4H8a4,4,0,0,0-4,4v2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><circle cx="12" cy="7" fill="none" r="4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g></g></g>
+                    </svg>
+                </div>
+                <div class="pl-2">
+                    <b class="">Account</b>
+                    <p class="text-sm text-gray-500">Personal information</p>
+                </div>
+            </div>
+            <div class="w-full border p-3 flex rounded-2xl items-center mb-1">
+                <div class="bg-gray-100 p-3 rounded-2xl flex justify-center items-center text-gray-500 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 21C16.4183 19 20 15.4183 20 11C20 6.58172 16.4183 3 12 3C7.58172 3 4 6.58172 4 11C4 15.4183 7.58172 19 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                </div>
+                <div class="pl-2">
+                    <b class="">Address</b>
+                    <p class="text-sm text-gray-500">Shipping Addresses</p>
+                </div>
+            </div>
+            <div class="w-full border p-3 flex rounded-2xl items-center mb-1">
+                <div class="bg-gray-100 p-3 rounded-2xl flex justify-center items-center text-gray-500 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none">
+                        <path d="M2 8.50488H22" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 16.5049H8" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.5 16.5049H14.5" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6.44 3.50488H17.55C21.11 3.50488 22 4.38488 22 7.89488V16.1049C22 19.6149 21.11 20.4949 17.56 20.4949H6.44C2.89 20.5049 2 19.6249 2 16.1149V7.89488C2 4.38488 2.89 3.50488 6.44 3.50488Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                </div>
+                <div class="pl-2">
+                    <b class="">Payment Methods</b>
+                    <p class="text-sm text-gray-500">Connect credit cards</p>
+                </div>
+            </div>
+            <div class="w-full border p-3 flex rounded-2xl items-center mb-1">
+                <div class="bg-gray-100 p-3 rounded-2xl flex justify-center items-center text-gray-500 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none">
+                        <path d="M20.91 11.12C20.91 16.01 17.36 20.59 12.51 21.93C12.18 22.02 11.82 22.02 11.49 21.93C6.63996 20.59 3.08997 16.01 3.08997 11.12V6.72997C3.08997 5.90997 3.70998 4.97998 4.47998 4.66998L10.05 2.39001C11.3 1.88001 12.71 1.88001 13.96 2.39001L19.53 4.66998C20.29 4.97998 20.92 5.90997 20.92 6.72997L20.91 11.12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                </div>
+                <div class="pl-2">
+                    <b class="">Security</b>
+                    <p class="text-sm text-gray-500">Password, 2FA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-11/12 mx-auto md:w-2/3 mt-5">
+        <h1 class="text-xl">Account</h1>
+        <div class="border rounded-2xl">
+            <div class="border-b px-2 py-3 md:p-4">
+                <h1 class="font-medium text-xl">Personal information</h1>
+                    
+                <div class="mt-3">
+                    <label for="" class="text-sm text-gray-500">Avatar</label>
+                    <div class="flex justify-between items-center w-60">
+                        <div class="w-20 h-20 relative">
+                            <img [src]="userData?.avatar?apiBaseUrl+'/images/avatar/'+userData.avatar:'/assets/users/user4.png'" class="object-cover w-20 h-20 rounded-full" alt="" (load)="imageLoading=false">
+                            <div class="w-20 h-20 absolute top-0 left-0 flex justify-center bg-gray-900/50 items-center rounded-full" *ngIf="imageLoading">
+                                <svg aria-hidden="true" role="status" class="inline w-6 h-6 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#fff"></path>
+                                    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2"></path>
+                                  </svg> 
+                            </div>
+                        </div>
+                        <label role="button" for="userAvatar" class="bg-transparent border border-indigo-600 text-indigo-600 hover:bg-indigo-100 p-2 rounded-lg font-medium">Change</label>
+                        <button class="bg-transparent text-gray-400 hover:text-orange-700 flex justify-center items-center">
+                            Remove
+                        </button>
+                        <input type="file" id="userAvatar" class="hidden" (change)="updateAvatar($event)">
+                    </div>
+                </div>
+                <form action="" [formGroup]="formData">
+
+                    <div class="mt-3 flex flex-wrap">
+                        <div class="w-full sm:w-6/12 sm:pr-2 flex flex-col mt-5">
+                            <label for="firstname" class="text-sm text-gray-500">First name</label>
+                            <input type="text" placeholder="First name" id="firstname" formControlName="firstName" name="firstName" class="border border-gray-300 rounded p-2 outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-400">
+                        </div>
+                        <div class="w-full sm:w-6/12 flex flex-col mt-5">
+                            <label for="lastname" class="text-sm text-gray-500">Last name</label>
+                            <input type="text" placeholder="Last name" id="lastname" formControlName="lastName" name="lastName" class="border border-gray-300 rounded p-2 outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-400">
+                        </div>
+                        <div class="w-full sm:w-6/12 sm:pr-2 flex flex-col mt-5">
+                            <label for="email" class="text-sm text-gray-500">Email</label>
+                            <input type="email" placeholder="email" id="email" formControlName="email" name="email" class="border border-gray-300 rounded p-2 outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-400">
+                        </div>
+                        <div class="w-full sm:w-6/12 flex flex-col mt-5">
+                            <label for="lastname" class="text-sm text-gray-500">Phone number</label>
+                            <input type="text" placeholder="Phone number" id="lastname"formControlName="phone" name="phone"  class="border border-gray-300 rounded p-2 outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-400">
+                        </div>
+                    </div>
+                    <div class="mt-5 mb-5">
+                        <h1 class="font-medium text-xl">Email notifications</h1>
+                        <div class="mt-3 flex flex-wrap">
+                            <div class="w-full sm:w-6/12 flex items-center mt-5">
+                                <input type="checkbox" name="newDeals" id="newDeals" class="mr-1 p-3 w-5 h-5 rounded-lg">
+                                <label for="newDeals" class="text-sm text-gray-500">New deals</label>
+                            </div>
+                            <div class="w-full sm:w-6/12 flex items-center mt-5">
+                                <input type="checkbox" name="passwordChange" id="passwordChange" class="mr-1 p-3 w-5 h-5 rounded-lg">
+                                <label for="passwordChange" class="text-sm text-gray-500">Password changes</label>
+                            </div>
+                            <div class="w-full sm:w-6/12 flex items-center mt-5">
+                                <input type="checkbox" name="newRestaurant" id="newRestaurant" class="mr-1 p-3 w-5 h-5 rounded-lg">
+                                <label for="newRestaurant" class="text-sm text-gray-500">New restaurant</label>
+                            </div>
+                            <div class="w-full sm:w-6/12 flex items-center mt-5">
+                                <input type="checkbox" name="specialOffers" id="specialOffers" class="mr-1 p-3 w-5 h-5 rounded-lg">
+                                <label for="specialOffers" class="text-sm text-gray-500">Special offers</label>
+                            </div>
+                            <div class="w-full sm:w-6/12 flex items-center mt-5">
+                                <input type="checkbox" name="orderStatus" id="orderStatus" class="mr-1 p-3 w-5 h-5 rounded-lg">
+                                <label for="orderStatus" class="text-sm text-gray-500"> Order statuses</label>
+                            </div>
+                            <div class="w-full sm:w-6/12 flex items-center mt-5">
+                                <input type="checkbox" name="newsletter" id="newsletter" class="mr-1 p-3 w-5 h-5 rounded-lg">
+                                <label for="newsletter" class="text-sm text-gray-500">Newsletter</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="flex justify-between flex-col sm:flex-row md:p-2">
+                <div class="p-2">
+                    <button class="border border-orange-700 text-orange-700 p-3 rounded-lg hover:bg-orange-700 hover:text-white w-full sm:w-fit" (click)="logout()">Log out</button>
+                </div>
+                <div class="p-2 w-full sm:flex-1 flex sm:justify-end justify-between">
+                    <button class="border border-gray-700 text-gray-700 p-3 rounded-lg mr-2 hover:bg-gray-700 hover:text-white" (click)="resetForm()">Discard changes</button>
+                    <button class="border border-indigo-700 bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-500" (click)="updateUserData()">
+                        <span *ngIf="!loading">Save</span>
+                        <svg aria-hidden="true" *ngIf="loading" role="status" class="inline mr-2 w-6 h-6 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#fff"></path>
+                            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2"></path>
+                          </svg> 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
