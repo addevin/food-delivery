@@ -1,3 +1,3 @@
 export const environment = {
-    baseApiUrl:'https://jsodkjnfosoi-api.addev.club',
+    baseApiUrl:'https://food-delivery-api.addev.club/',
 };
