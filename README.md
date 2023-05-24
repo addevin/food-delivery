@@ -28,7 +28,7 @@ To run the Food Delivery Angular app locally, follow these steps:
 2. Clone this repository to your local machine using the following command:
 
 ```
-git clone https://github.com/your-username/food-delivery.git
+git clone https://github.com/addevin/food-delivery-angular.git
 ```
 
 
